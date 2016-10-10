@@ -7,3 +7,6 @@ start.sh
 *~
 *.swp
 .avoscloud/
+
+npm-debug.log
+.idea
