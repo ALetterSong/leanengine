@@ -1,5 +1,5 @@
 {
-  "name": "LeanEngine_Weixin_Sample",
+  "name": "LeanEngine",
   "version": "1.0.0",
   "description": "A sample Weixin server app using LeanEngine",
   "main": "server.js",

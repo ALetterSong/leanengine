@@ -4,7 +4,9 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+
 var wechat = require('./routes/wechatBot');
+
 var todos = require('./routes/todos');
 var cloud = require('./cloud');
 
@@ -46,14 +48,23 @@ app.use(function (req, res, next) {
     d.run(next);
 });
 
+// 首页
 app.get('/', function (req, res) {
     res.render('index', {
-        currentTime: new Date()
+        currentTime: new Date(),
+        env: app.get('env')
     });
 });
 
+
+app.use('/resume',express.static('mypmresume'));
+
+
+// 注册中间件
 // 可以将一类的路由单独保存在一个文件中
+// 微信
 app.use('/wechat', wechat);
+// todos
 app.use('/todos', todos);
 
 // 如果任何路由都没匹配到，则认为 404

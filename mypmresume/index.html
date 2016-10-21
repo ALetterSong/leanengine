@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Chengbo Gao's CV</title>
+	<meta name="author" content="Alvaro Trigo Lopez" />
+	<meta name="description" content="pagePiling.js plugin by Alvaro Trigo." />
+	<meta name="keywords"  content="pile,piling,piling.js,stack,pages,scrolling,stacking,touch,fullpile,scroll,plugin,jquery" />
+	<meta name="Resource-type" content="Document" />
+
+	<link rel="stylesheet" type="text/css" href="vendor/jquery.pagepiling.css" />
+	<link rel="stylesheet" type="text/css" href="css/main.css" />
+
+    <link rel="shortcut icon" href="img/favicon.ico" />
+	
+
+	<script src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
+
+	<script type="text/javascript" src="vendor/jquery.pagepiling.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+	    	$('#pagepiling').pagepiling({
+			    sectionsColor: ['#51bec4', '#bfda00', '#2C3E50', '#2ebe21','#605b67','#ea8010','#cf5858'],
+			    navigation: {
+			    	'position': 'right',
+			   		'tooltips': ['Home', 'Projects', 'Professions', 'Education','Internship','Jobs Preferred','Contact Me']
+			   	}
+			});
+	    });
+    </script>
+</head>
+<body>
+	<div id="lang-panel">
+            <a id="link" class="lang" href="cn.html">中</a>
+            <a class="lang selected" href="#">En</a>
+    </div>
+	<div style="position:fixed;top:50px;left:50px;color:white;z-index:999;" id="callbacksDiv"></div>
+
+	<div id="pagepiling">
+	    <div class="section" id="sectin1">
+                <img src="img/avatar.png" />
+                <h1 id="title">Chengbo Gao</h1>
+                <p id="subtitle">A Nice, Creative, and Reliable</p>
+                <p>Product Manager</p>
+        </div>
+
+	    <div class="section" id="section2">
+	    	<div class="intro">
+	    		<h1>Projects</h1>
+				 <div id="sub" class="tg-panel">
+                    <div class="tg expert"><h4>1、 The Logo of Association of Societies</h4></div>
+                 </div>
+                 <div class="tg-panel">
+                    <div class="tg expert"><h4>2、 The Web Design of Science and Technology Association</h4></div>
+                 </div>
+                 <div class="tg-panel">
+                    <div class="tg expert"><h4>3、 The Web Design of Youth League Committee</h4></div>
+                 </div> 
+                 <div class="tg-panel">
+                    <div class="tg expert"><h4>4、 Lead a Team to Achieve a Reward in Computer Design Contest of Jiangsu Province</h4></div>
+                 </div>
+                 <div class="tg-panel">
+                    <div class="tg expert"><h4>5、 Organize Many Different Kinds of Activities for Students to Participate in Design</h4></div>
+                 </div>
+                 <div class="tg-panel">
+                    <div class="tg expert"><h4>And More...</h4></div>
+                 </div>
+	    	</div>
+	    </div>
+
+	    <div class="section" id="section3">
+	    	<h1>Professions</h1>
+                <div id="sub" class="tag-panel">
+                    <div class="tag expert">PhotShop</div>
+                    <div class="tag familiar">Adobe Illustrator</div>
+                </div>
+                <div class="tag-panel">
+                    <div class="tag expert">HTML5</div>
+                    <div class="tag expert">CSS</div>
+                    <div class="tag expert">JavaScript</div>
+                    <div class="tag familiar">jQuery</div>
+                    <div class="tag familiar">Bootstrap</div>
+                </div>
+                <div class="tag-panel">
+                    <div class="tag familiar">Axure</div>
+                    <div class="tag familiar">BRD</div>
+                    <div class="tag">PRD</div>
+                </div>
+                <div class="tag-panel">
+                    <div class="tag expert">Web Design</div>
+                    <div class="tag familiar">UI/UE</div>
+                    <div class="tag familiar">Flat Design</div>
+                </div>
+                <div class="tag-panel">
+                    <div class="tag expert">Node</div>
+                    <div class="tag expert">Git</div>
+                </div>
+	    </div>
+
+	    <div class="section" id="section4">
+	    	<h1>Education</h1>
+                <p id="sub">Undergraduate student at <em>Wenzheng College of Soochow University</em></p>
+                <p>Major in <em>Internet of Things</em></p>
+                <h3>Information Center</h3>
+                <h3>Expected to graduate on <em>June, 2016</em></h3>
+                <p>Research topic related about <em>Internet Products</em> and <em>User Experience</em></p>
+                <h3>Hire Me Now!</h3>
+	    </div>
+
+	    <div class="section" id="section5">
+	    	<h1>Internship</h1>
+                <h3 id="sub">Process Control Staff @Dizhen Logistics</h3>
+                <br>
+                <h4>July 2014 - August 2014</h4>
+                <h4>Related work: Communicate, Record and Process Control</h4>
+                <h4>Excellent Intern of 2014 </h4>
+	    </div>
+
+	    <div class="section" id="section6">
+	    	<h1>Jobs Preferred</h1>
+                <h3 id="sub">As a Product Manager</h3>
+                <h4 id="sub">(even better if is related with User Experience Design or User Interface Design)</h4>
+                <p>In Suzhou</p>
+                <h4>Or, surprise me with a generous offer!</h4>
+                <h3>Hire Me Now!</h3>
+	    </div>
+
+	    <div class="section" id="section7">
+	    	<h1>Learn More</h1>
+                <h3 id="sub"><a href="http://gaochengbo.com/" target="_blank">Personal Website</a></h3>
+				<h4 id="sub"><a href="http://www.zcool.com.cn/u/2450134/" target="_blank">ZCool Homepage</a></h3>
+                <h4>Email: me@gaochengbo.com</a></h4>
+
+                <h3><a href="Product Manager Chengbo Gao.pdf" target="_blank" class="highlight">Download CV</a></h3>
+
+                
+	    </div>
+	</div>
+
+</body>
+</html>

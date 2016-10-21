@@ -1,11 +1,18 @@
+/**
+ * wechat
+ */
 var router = require('express').Router();
 // 引用 wechat 库，详细请查看 https://github.com/node-webot/wechat
 var wechat = require('wechat');
-var config = {
-    token: '545511611',
-    appid: 'wxc327caec4bc211b2',
-    encodingAESKey: 'OdLk1ccxRkYI0igkM3exGlV6SqOKWoQAYDhqrRo3vje'
-};
+
+//引入token刷新
+var wxToken = require('../libs/wxToken');
+wxToken();
+//创建菜单
+const wxMenu = require('../libs/wxMenu');
+wxMenu();
+
+var config = require('../config');
 
 var WechatAPI = require('wechat-api');
 var api = new WechatAPI('wxc327caec4bc211b2',
@@ -32,9 +39,12 @@ var menu = {
                 }]
         }]
 };
-api.createMenu(menu, function (err, result) {
 
-});
+// api.createMenu(menu, function (err, result) {
+//     console.log(result);
+//     console.log(err);
+// })
+
 router.use('/', wechat(config.token).text(function (message, req, res, next) {
     // message为文本内容
     // FromUserName: 'oPKu7jgOibOA-De4u8J2RuNKpZRw',
