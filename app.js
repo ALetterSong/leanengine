@@ -5,7 +5,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var wechat = require('./routes/wechatBot');
+var wechat = require('./routes/wechat');
 
 var todos = require('./routes/todos');
 var cloud = require('./cloud');
@@ -57,7 +57,7 @@ app.get('/', function (req, res) {
 });
 
 
-app.use('/resume',express.static('mypmresume'));
+// app.use('/',express.static('dist'));
 
 
 // 注册中间件

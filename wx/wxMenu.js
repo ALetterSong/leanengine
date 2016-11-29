@@ -1,25 +1,27 @@
 'use strict';
 const fs = require('fs');
 const request = require('request');
+var wechatAPI = require('../common/weixin').wechatAPI;
+var logger = require('../common/logger')
 
 //token
-const token = fs.readFileSync('./token').toString();
-// const token = 'm8KxNBvwU08XTFwBj2M6LPC3eV0xP0aPX4Uv0CnaOz2tZ6pPE3Z4F-m_UwRhU8ZIXlNH5AuK7gpaxghbo623MkFDdsTla9r-0zbSr721fwmCq9VLgPelNlXxyUmLLSDRAHFfAGARYW';
+// const token = fs.readFileSync('./token').toString();
+const token = 'x61YhzYv4bScVmY3qUARoewL8OPv0JyUoryF6AxRmTzHeSbwIxURuN_EAD-L59SiTo6oSLcsNCwmM91WveySIEHvG3iV0Ml2Vk1eBnNdKJDtMFarFea1t_pc6Q8Tk7rZVVBeAAABBH';
 
 //常用type为view和click,分别为点击事件和链接
 var menus = {
     "button": [
         {
-            "name": "关于我",
+            "name": "Taidii",
             "sub_button": [
                 {
                     "type": "view",
-                    "name": "访问我的博客",
-                    "url": "http://haoduoyu.cc"
+                    "name": "Taidii V2",
+                    "url": "http://v2.taidii.com/"
                 }, {
                     "type": "view",
-                    "name": "我的简历",
-                    "url": "http://haoduoyu.cc/resume"
+                    "name": "精彩瞬间",
+                    "url": "http://ng2.taidii.cn/"
                 }]
         }]
 };

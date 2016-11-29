@@ -1,8 +1,9 @@
 'use strict';
-var request = require('request');
 var qs = require('querystring');
 var fs = require('fs');
 var config = require('../config');
+
+var remote = require('../common/httpRequest');
 
 
 var getAccessToken = function () {
@@ -17,8 +18,9 @@ var getAccessToken = function () {
         method: 'GET',
         url: wxGetAccessTokenBaseUrl
     };
+
     return new Promise((resolve, reject) => {
-        request(options, function (err, res, body) {
+        remote.get(options, function (err, res, body) {
             if (res) {
                 resolve(JSON.parse(body));
             } else {
@@ -29,12 +31,13 @@ var getAccessToken = function () {
 };
 
 var saveToken = function () {
-    getAccessToken().then(res => {
-        var token = res['access_token'];
-        fs.writeFile('./token', token, function (err) {
+    getAccessToken()
+        .then(res => {
+            var token = res['access_token'];
+            fs.writeFile('./token', token, function (err) {
 
-        });
-    })
+            });
+        })
 };
 
 var refreshToken = function () {
