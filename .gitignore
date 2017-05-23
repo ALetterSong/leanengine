@@ -10,5 +10,4 @@ start.sh
 
 npm-debug.log
 .idea
-config.js
-mypmresume
+config/config.js

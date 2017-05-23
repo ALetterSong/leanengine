@@ -6,7 +6,6 @@
 
 var http = require('http');
 var request = require('request');
-var logger = require('../common/logger')
 
 module.exports = {
     get: function (options, callback) {
@@ -20,7 +19,7 @@ module.exports = {
                     data = JSON.parse(body)
                 }
                 catch (e) {
-                    logger.error(body)
+                    console.error(body)
                     return callback(e)
                 }
                 if (response.statusCode >= 200 && response.statusCode < 300) {
@@ -30,7 +29,7 @@ module.exports = {
                     callback(403, data)
                 }
                 else {
-                    logger.error(data.msg || data)
+                    console.error(data.msg || data)
                     callback(data.msg || '系统繁忙,请稍后再试')
                 }
             }

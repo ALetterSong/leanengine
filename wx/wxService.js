@@ -7,8 +7,7 @@
 var wechatAPI = require('./wxCommon').wechatAPI,
     client = require('./wxCommon').client,
 
-    config = require('../config'),
-    logger = require('../common/logger'),
+    config = require('../config/config'),
     // jwt = require('jsonwebtoken'),
     remote = require('../common/httpRequest');
 
@@ -20,6 +19,10 @@ module.exports = {
      * @param scope
      */
     getAuthorizeURL: function (redirect, state, scope) {
+        console.log('wxService.getAuthorizeURL');
+        console.log(redirect);
+        console.log(state);
+        console.log(scope);
         return client.getAuthorizeURL(redirect, state, scope)
     },
 
@@ -50,7 +53,7 @@ module.exports = {
                 })
             }
             else {
-                logger.error('getInfoFromWeixin:' + err)
+                console.error('getInfoFromWeixin:' + err)
                 callback(err, result)
             }
         })
@@ -82,9 +85,9 @@ module.exports = {
         var postData = JSON.stringify(info);
 
         var options = {
-            host: config.logic.host,
-            port: config.logic.port,
-            path: config.logic.createUser,
+            host: config.login.host,
+            port: config.login.port,
+            path: config.login.path,
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -98,26 +101,11 @@ module.exports = {
 
 
     createMenu: function () {
-        var menus = {
-            "button": [
-                {
-                    "name": "Taidii123",
-                    "sub_button": [
-                        {
-                            "type": "view",
-                            "name": "Taidii V2",
-                            "url": "http://v2.taidii.com/"
-                        }, {
-                            "type": "view",
-                            "name": "精彩瞬间",
-                            "url": "http://ng2.taidii.cn/"
-                        }]
-                }]
-        };
+        var menus = require('../config/menus.json')
 
         wechatAPI.createMenu(menus, function (err, result) {
             if (err) {
-                logger.error(err)
+                console.error(err)
             }
             console.log(result)
 

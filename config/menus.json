@@ -1,0 +1,49 @@
+{
+  "button": [
+    {
+      "name": "泰迪系统",
+      "sub_button": [
+        {
+          "type": "click",
+          "name": "click图文",
+          "key": "td-click"
+        },
+        {
+          "type": "click",
+          "name": "iOS 客户端",
+          "key": "ios"
+        },
+        {
+          "type": "click",
+          "name": "Android 客户端",
+          "key": "android"
+        }
+      ]
+    },
+    {
+      "name": "游学",
+      "sub_button": [
+        {
+          "type": "click",
+          "name": "亲子游学",
+          "key": "qzyx"
+        },
+        {
+          "type": "click",
+          "name": "教育直通车",
+          "key": "jyztc"
+        },
+        {
+          "type": "view",
+          "name": "老师培训",
+          "url": "http://mp.weixin.qq.com/s/ieqV7axGeeWZBfoWW6g06w"
+        }
+      ]
+    },
+    {
+      "type": "click",
+      "name": "jcsj",
+      "key": "jcsj"
+    }
+  ]
+}

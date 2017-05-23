@@ -5,8 +5,7 @@
  */
 
 var wxService = require('./wxService'),
-    config = require('../config'),
-    logger = require('../common/logger');
+    config = require('../config/config');
 
 module.exports = function (req, res, next) {
     var code = req.query.code || '',
@@ -17,23 +16,28 @@ module.exports = function (req, res, next) {
     wxService.getInfoFromWeixin(code, function (err, result) {
         if (err) {
             res.redirect(wxService.getAuthorizeURL(config.ng2domain + req.path, '', 'snsapi_userinfo'))
-            // res.sendfile('./views/index.html')
         }
         else if (result && result.subscribe) {
-            wxService.getToken(result, function (err, data) {
-                if (err === null || err === '' || err === undefined) {
-                    res.cookie('Authorization', 'JWT ' + data.token)
-                    req.cookies.Authorization = 'JWT ' + data.token
-                    return next()
-                }
-                else {
-                    res.write('403');
-                    res.end()
-                }
-            })
+
+            res.render('login', {
+                title: '登录',
+            });
+
+            // wxService.getToken(result, function (err, data) {
+            //     if (err === null || err === '' || err === undefined) {
+            //         res.cookie('Authorization', 'JWT ' + data.token)
+            //         req.cookies.Authorization = 'JWT ' + data.token
+            //         return next()
+            //     }
+            //     else {
+            //         res.write('403');
+            //         res.end()
+            //     }
+            // })
+
         }
         else {
             res.sendfile('./views/qrcode.html')
         }
     })
-}
+};

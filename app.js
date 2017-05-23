@@ -4,11 +4,12 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var busboy = require('connect-busboy')
 
 var wechat = require('./routes/wechat');
 
 var todos = require('./routes/todos');
-var cloud = require('./cloud');
+var upload = require('./routes/upload');
 
 var app = express();
 
@@ -16,9 +17,8 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
-
-// 加载云代码方法
-app.use(cloud);
+// upload
+app.use(busboy())
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -48,6 +48,15 @@ app.use(function (req, res, next) {
     d.run(next);
 });
 
+app.all('*', function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+    res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
+    res.header("X-Powered-By", ' 3.2.1');
+    res.header("Content-Type", "application/json;charset=utf-8");
+    next();
+});
+
 // 首页
 app.get('/', function (req, res) {
     res.render('index', {
@@ -57,8 +66,7 @@ app.get('/', function (req, res) {
 });
 
 
-// app.use('/',express.static('dist'));
-
+app.use('/demo', express.static('demo'));
 
 // 注册中间件
 // 可以将一类的路由单独保存在一个文件中
@@ -66,6 +74,9 @@ app.get('/', function (req, res) {
 app.use('/wechat', wechat);
 // todos
 app.use('/todos', todos);
+
+app.use('/upload', upload);
+
 
 // 如果任何路由都没匹配到，则认为 404
 // 生成一个异常让后面的 err handler 捕获

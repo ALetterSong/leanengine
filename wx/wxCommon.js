@@ -4,11 +4,10 @@
  * Created by xiepan on 2016/11/29 上午11:57.
  */
 
-var config = require('../config'),
+var config = require('../config/config'),
     API = require('wechat-api'),
-    OAuth = require('wechat-oauth'),
+    OAuth = require('wechat-oauth');
     // redis = require('redis'),
-    logger = require('../common/logger');
 
 // var redisClient = redis.createClient({
 //     retry_strategy: function (options) {
